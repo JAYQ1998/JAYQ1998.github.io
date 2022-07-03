@@ -4,9 +4,12 @@
   - [Java基础 - 基本概念](java/concept)
   - [Java基础 - 面向对象](java/object)
   - [Java基础 - 异常/static/泛型/反射](java/other)
-- [指南](zh-cn/guide)
+- [软技能](softskills/)
+  - [Git](softskills/Git)
 
-
+- [各种安装指南](guide/)
+  - [Nacos安装指南](guide/Nacos安装指南)
+  - [nacos集群搭建](guide/nacos集群搭建)
 
 - [数据结构与算法](/general/algorithm/README.md)
   - 数据结构
