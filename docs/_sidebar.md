@@ -4,16 +4,25 @@
   - [Java基础 - 基本概念](java/concept)
   - [Java基础 - 面向对象](java/object)
   - [Java基础 - 异常/static/泛型/反射](java/other)
+  
 - [Linux](linux/)
   - [shell](linux/shell)
   - [vim](linux/vim)
+  
 - [中间件](middleware/)
   - [消息队列](middleware/mq)
   - [nginx](middleware/nginx)
+  
 - [软技能](softskills/)
   - [Git](softskills/Git/)
+  
+    - [Git常用命令及方法大全](softskills/Git/Git常用命令及方法大全)
+  
     - [Git分支管理策略](softskills/Git/Git分支管理策略)
+    - [版本回退-撤销文件修改](softskills/Git/版本回退-撤销文件修改)
+  
   - [GitLab](softskills/Gitlab)
+  
 - [各种安装指南](guide/)
   - [Nacos安装指南](guide/Nacos安装指南)
   - [nacos集群搭建](guide/nacos集群搭建)
