@@ -24,16 +24,9 @@ git config --global http.sslVerify false
 
 #### d.     ` the remote end hung up unexpectedley                                     `    
 
-有以下几种解决方案：
-如果你的 git 是使用 http 协议的，改用ssh协议，再次 push 即可
-运行 git remote set-url origin git@git.xxx.com:gitbook/notes.git
-在 .git/config 文件中修改url为ssh协议url
-[remote "origin"]
-url =git@git.xxx.com:gitbook/notes.git
-修改 git 缓存大小 (这里给出的是全局的,也可以设置该文件夹的,也可以从config文件中添加/修改大小)
-git config --global http.postBuffer 524288000
-强制推送
-git push -u origin master -f
+# protocol error: bad line length character错误解决
+
+删除凭证
 
 ### 2 clone 失败
 
