@@ -9,6 +9,7 @@
   - [vim](linux/vim)
 - [中间件](middleware/)
   - [消息队列](middleware/mq)
+  - [nginx](middleware/nginx)
 - [软技能](softskills/)
   - [Git](softskills/Git)
   - [GitLab](softskills/Gitlab)
