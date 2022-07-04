@@ -1,5 +1,11 @@
 # GIT 相关问题解决
 
+> 首先看是不是网的问题
+
+> 重连/换个网络，我搞了半天结果发现是网有问题
+
+---
+
 ### 1.push失败
 
 #### a.Failed to connect to github.com port 443: Timed out
@@ -12,19 +18,17 @@
 
 然后再push，就很nice!
 
-
-
 ### b.OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10053                                 
 
 git config --global http.sslVerify false
 
----
-
 #### c.文件过大，无法push
 
-#### d.     ` the remote end hung up unexpectedley                                     `    
+改缓存值
 
-# protocol error: bad line length character错误解决
+#### d. the remote end hung up unexpectedley 
+
+#### protocol error: bad line length character错误解决
 
 删除凭证
 
