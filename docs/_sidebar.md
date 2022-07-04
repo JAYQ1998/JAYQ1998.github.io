@@ -4,15 +4,14 @@
   - [Java基础 - 基本概念](java/concept)
   - [Java基础 - 面向对象](java/object)
   - [Java基础 - 异常/static/泛型/反射](java/other)
-
 - [Linux](linux/)
   - [shell](linux/shell)
-
+  - [vim](linux/vim)
 - [中间件](middleware/)
   - [消息队列](middleware/mq)
-
 - [软技能](softskills/)
   - [Git](softskills/Git)
+  - [GitLab](softskills/Gitlab)
 - [各种安装指南](guide/)
   - [Nacos安装指南](guide/Nacos安装指南)
   - [nacos集群搭建](guide/nacos集群搭建)
