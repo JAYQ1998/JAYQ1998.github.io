@@ -15,10 +15,9 @@
   - [Git](softskills/Git/)
 
     - [Git常用命令及方法大全](softskills/Git/Git常用命令及方法大全)
-
     - [Git分支管理策略](softskills/Git/Git分支管理策略)
     - [版本回退-撤销文件修改](softskills/Git/版本回退-撤销文件修改)
-
+    - [submodule](softskills/Git/submodule)
   - [GitLab](softskills/Gitlab)
 - [各种安装指南](guide/)
   - [Nacos安装指南](guide/Nacos安装指南)
