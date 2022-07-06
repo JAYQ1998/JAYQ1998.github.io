@@ -1,5 +1,8 @@
 <!-- docs/_sidebar.md -->
 
+- [更新日志](changelog)
+- [更新计划](changeplan)
+
 - [JAVA](java/)
   - [Java基础 - 基本概念](java/concept)
   - [Java基础 - 面向对象](java/object)
@@ -12,6 +15,10 @@
   - [消息队列](middleware/mq)
   - [nginx](middleware/nginx)
 - [软技能](softskills/)
+  - [IDEA](softskills/idea/)
+    - [idea常用快捷键](softskills/idea/idea常用快捷键)
+    - [idea 好用插件](softskills/idea/idea 好用插件)
+    - [idea常用设置](softskills/idea/idea常用设置)
   - [Git](softskills/Git/)
 
     - [Git常用命令及方法大全](softskills/Git/Git常用命令及方法大全)
