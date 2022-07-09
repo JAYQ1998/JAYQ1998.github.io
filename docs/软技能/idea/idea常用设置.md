@@ -34,10 +34,5 @@
 - code completion
   - parameter info 全部勾选 
 
-## 项目环境常见设置错误
 
-### 1.JDK设置错误
-
-- project structure
-- 
 
