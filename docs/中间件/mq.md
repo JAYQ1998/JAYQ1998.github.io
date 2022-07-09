@@ -1,26 +1,24 @@
-# 消息队列
-
 ### 1.优点
 
 应用耦合，异步处理，流量削峰
 
 - 解耦
 
-  ![](https://gitee.com/jayq1998/blog/raw/master/img/image-20220407122139438.png)
+  ![](mq.assets/image-20220407122139438.png)
 
-  ![image-20220407122211305](https://gitee.com/jayq1998/blog/raw/master/img/image-20220407122211305.png)
+  ![image-20220407122211305](mq.assets/image-20220407122211305.png)
   
   ![image-20220407122332566](../../../AppData/Roaming/Typora/typora-user-images/image-20220407122332566.png)
 
 - 异步
 
-  ![image-20220407122312042](https://gitee.com/jayq1998/blog/raw/master/img/image-20220407122312042.png)
+  ![image-20220407122312042](mq.assets/image-20220407122312042.png)
 
   
 
 - 削峰
 
-  ![image-20220407122415668](https://gitee.com/jayq1998/blog/raw/master/img/image-20220407122415668.png)
+  ![image-20220407122415668](mq.assets/image-20220407122415668.png)
 
 ### 2. 入门案例
 
@@ -252,7 +250,7 @@ channel.basicQos(prefetchCount);
 
 对于微信公众号，相信每个人都订阅过，当公众号发送新的消息后，对于订阅过该公众号的所有用户均可以收到消息，这个场景大家都能明白，同样对于RabbitMQ消息的处理也支持这种消息处理，当生产者把消息投送出去后，不同的消费者均可以对该消息进行消费，而不是**消息被一个消费者消费后就立即从队列中删除**，对于这种消息处理，我们通常称之为消息的发布与订阅模式，凡是消费者订阅了该消息，均能够收到对应消息进行处理，比较常见的如用户注册操作。模型图如下:
 
-![image-20220407160528335](https://gitee.com/jayq1998/blog/raw/master/img/image-20220407160528335.png)
+![image-20220407160528335](mq.assets/image-20220407160528335.png)
 
 核心思想:
 
@@ -262,7 +260,7 @@ channel.basicQos(prefetchCount);
 
 
 
-![image-20220407162039887](https://gitee.com/jayq1998/blog/raw/master/img/image-20220407162039887.png)
+![image-20220407162039887](mq.assets/image-20220407162039887.png)
 
 核心代码
 
@@ -374,7 +372,7 @@ public class Recv01 {
 
 ![](https://gitee.com/jayq1998/blog/raw/master/img/image-20220407165632203.png
 
-![image-20220407165909182](https://gitee.com/jayq1998/blog/raw/master/img/image-20220407165909182.png)
+![image-20220407165909182](mq.assets/image-20220407165909182.png)
 
 核心代码
 
@@ -562,7 +560,7 @@ public class Recv02 {
 
 当路由key成千上万个,如何对路由key进行管理，此时简单的路由队列无法满足需求
 
-![image-20220408122156536](https://gitee.com/jayq1998/blog/raw/master/img/image-20220408122156536.png)
+![image-20220408122156536](mq.assets/image-20220408122156536.png)
 
 核心思想：
 
@@ -716,7 +714,7 @@ public class Recv02 {
 
 - C 根据correlation_id从队列中拿消息
 
-![image-20220408123744409](https://gitee.com/jayq1998/blog/raw/master/img/image-20220408123744409.png)
+![image-20220408123744409](mq.assets/image-20220408123744409.png)
 
 客户端（常开）
 
@@ -1293,11 +1291,11 @@ public class RecvInit {
 
 1. 消息落库，对消息状态进行打标
 
-   ![image-20220408184949206](https://gitee.com/jayq1998/blog/raw/master/img/image-20220408184949206.png)
+   ![image-20220408184949206](mq.assets/image-20220408184949206.png)
 
 2. 消息延迟投递，做二次确认，回调检查
 
-   ![](https://gitee.com/jayq1998/blog/raw/master/img/image-20220408185639997.png)
+   ![](mq.assets/image-20220408185639997.png)
 
 ### 5. 消费者幂等性解决方案
 
