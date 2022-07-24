@@ -1,3 +1,5 @@
 - [返回首页](/)
 - [Bug汇总](Bug汇总/)
   - [git相关bug](Bug汇总/git相关bug.md)
+  - [idea项目环境常见设置问题](Bug汇总/idea项目环境常见设置问题.md)
+  - [Spring相关bug](Bug汇总/Spring相关bug.md)
