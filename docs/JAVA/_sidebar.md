@@ -1,6 +1,5 @@
 - [返回首页](/)
 - [JAVA](JAVA/)
-  - [images](JAVA/images/)
   - [JAVA基础](JAVA/JAVA基础/)
   - [JVM](JAVA/JVM/)
   - [容器](JAVA/容器/)

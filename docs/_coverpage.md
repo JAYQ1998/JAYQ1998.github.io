@@ -2,7 +2,7 @@
 
 ![logo](_media/logo.png)
 
-# Jayq <small>2.6</small>
+# Jayq <small>2.6.1</small>
 
 > 个人记录学习，工作，生活的网站
 
