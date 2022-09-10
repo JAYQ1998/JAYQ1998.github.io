@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+
+</head>
+
+<body>
+  <div id="app">JAYQ</div>
+  <script>
+    window.$docsify = {
+      //封面
+      coverpage: true,
+      //显示github仓库
+      repo: 'https://github.com/JAYQ1998/JAYQ1998.github.io/',
+
+      //文档标题，会显示在侧边栏顶部
+      name: 'jayq',
+
+      //侧边栏
+      loadSidebar: true,
+      // alias: {
+      //   '/.*/_sidebar.md': '/_sidebar.md',
+      // },
+      //自动添加标题
+      autoHeader: true,
+
+      maxLevel: 4,
+      subMaxLevel: 4,
+
+      //导航栏
+      loadNavbar: true,
+
+
+
+      pagination: {
+        previousText: '上一章节',
+        // or
+        nextText: {
+          '/en/': 'NEXT',
+          '/': '下一章节'
+        },
+        crossChapter: true,
+        crossChapterText: true
+      },
+      //小屏设备下合并导航栏到侧边栏
+      mergeNavbar: true,
+
+      //自动化添加标题
+      autoHeader: true,
+
+
+      //显示文档更新日期
+      timeUpdater: {
+        text: ">最后更新时间: {docsify-updated}",
+        formatUpdated: "{YYYY}/{MM}/{DD}",
+        whereToPlace: "bottom",  // "top" or "bottom", default to "bottom"
+      },
+
+      //字数统计配置
+      count: {
+        countable: true,
+        fontsize: '0.9em',
+        color: 'rgb(90,90,90)',
+        language: 'chinese'
+      },
+      // docsify-copy-code (defaults)
+      copyCode: {
+        buttonText: '复制代码',
+        errorText: 'Error',
+        successText: '复制成功'
+      },
+
+
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+  <!-- plugins -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- 字数统计 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <!-- edit on github -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
+  <!-- emoji -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <!-- 复制到剪贴板 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+</body>
+
+</html>

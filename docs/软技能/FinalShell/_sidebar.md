@@ -1,0 +1,3 @@
+- [返回上一级 [软技能]](软技能/)
+- [FinalShell](软技能/FinalShell/)
+  - [FinalShell ：简介及项目部署方法](软技能/FinalShell/FinalShell ：简介及项目部署方法.md)
