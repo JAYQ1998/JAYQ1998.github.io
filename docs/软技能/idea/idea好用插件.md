@@ -4,15 +4,15 @@
 >
 > https://blog.csdn.net/qq_34337272/article/details/105955512
 
-## JAVADOC
+## Easy JavaDoc
 
 > 作用：用于在Java类元素（例如字段，方法等）上生成Java文档的插件
 
-可以配置模板
+操作方式：光标定位到要注释的类/方法/字段，按`Ctrl+\`自动生成注释
 
+其他功能
 
-
-
+- 支持自定义配置模板
 
 ## IDE Features Trainer—IDEA交互式教程
 
@@ -267,11 +267,13 @@ SonarLint 帮助你发现代码的错误和漏洞，就像是代码拼写检查�
 >
 > 如果你要使用 Lombok 的话，不光是要安装这个插件，你的项目也要引入相关的依赖。
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
+```
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <optional>true</optional>
+    </dependency>
+```
 
 使用 Lombok 能够帮助我们少写很多代码比如 Getter/Setter、Constructor等等。
 
