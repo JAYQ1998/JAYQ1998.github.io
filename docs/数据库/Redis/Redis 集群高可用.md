@@ -1,41 +1,29 @@
-# Redis 集群高可用
+# Redis 集群常见面试题总结
 
 相关面试题 ：
- 
-●如何保证 Redis 服务高可用？
-●主从复制方案是怎么做的？
-●Sentinel（哨兵）  有什么作用？
-●Redis 为什么要将 Sentinel 设计成分布式架构？
-●Sentinel 选举 Leader 是如何达成共识的？
-●Raft 算法有什么作用？
-●Redis 缓存的数据量太大怎么办?
-●Redis Cluster 虚拟槽分区有什么优点？
-●Gossip 协议有什么作用？
-●......
 
-
+- 如何保证 Redis 服务高可用？
+- 主从复制方案是怎么做的？
+- Sentinel（哨兵）  有什么作用？
+- Redis 为什么要将 Sentinel 设计成分布式架构？
+- Sentinel 选举 Leader 是如何达成共识的？
+- Raft 算法有什么作用？
+- Redis 缓存的数据量太大怎么办?
+- Redis Cluster 虚拟槽分区有什么优点？
+- Gossip 协议有什么作用？
+- ......
 
 单机 Redis 存在单点风险问题，如果 Redis 宕机的话，就会导致大量的请求直接打到数据库，严重的情况下，数据库很可能会直接被打死。
 
-
-
 如何保证 Redis 服务的高可用呢？ 我们可以基于主从复制搭建一个 Redis 集群，master（主节点）主要负责处理写请求，slave（从节点）主要负责处理读请求，master 宕机的话，从 slave 中选出一台作为 master 即可！
-
-
 
 Redis Sentinel（哨兵）就是一个基于主从复制的 Redis 集群解决方案。不过，Redis Sentinel 这种方案主要是提高了 Redis 服务的可用性和读吞吐量，并不能缓解写压力以及解决缓存数据量过大的问题。
 
-
-
 如果我们的缓存的写请求比较多且需要缓存的数据比较大的话，Redis Sentinel 是没办法做到的，这个时候，我们就需要用到 Redis 分片集群了。Redis Cluster 是 Redis 官方推出的分片集群解决方案 。
 
+## 主从复制 
 
-
- 主从复制 
-
-
-
-在主从复制这种方案下，我们通过 [Redis replication](https://redis.io/docs/manual/replication/)（Redis 默认使用异步复制）来搭建一个一主(master)多从(slave)的 Redis 服务架构来提高可用性和读吞吐量。master 主要负责处理写请求，slave 主要负责处理读请求，master 宕机的话，从 slave 中选出一台作为 master 即可。
+在主从复制这种方案下，我们通过 [Redis replication](https://redis.io/docs/manual/replication/)（Redis 默认使用异步复制）来搭建一个一主(master)多从(slave)的 Redis 服务架构来提高可用性和读吞吐量。master 主要负责处理**写**请求，slave 主要负责处理**读**请求，master 宕机的话，**从 slave 中选出一台作为 master 即可**。
 
 
 
@@ -47,37 +35,23 @@ Redis Sentinel（哨兵）就是一个基于主从复制的 Redis 集群解决�
 
 具体要配置多少 slave 节点呢？ 这个主要取决于读吞吐量，因为 slave 节点分担的是读请求，写请求由 master 节点负责。
 
+这样的方式有什么痛点呢？
 
-
-这样的方式有什么痛点呢？ 一旦 master 宕机，slave 晋升成 master，同时需要修改应用方的主节点地址，还需要命令所有从节点去复制新的主节点，整个过程需要人工干预。人工干预大大增加了问题的处理时间以及出错的可能性，如果能够自动化地完成故障切换就好了。
-
-
+ 一旦 master 宕机，slave 晋升成 master，同时需要**修改应用方的主节点地址**，还需要**命令所有从节点去复制新的主节点**，整个过程需要人工干预。人工干预大大增加了问题的处理时间以及出错的可能性，如果能够**自动化**地完成故障切换就好了。
 
 接下来介绍的 Redis Sentinel（哨兵）就可以帮助我们来解决这个痛点。
 
-
-
 简单总结一下主从复制这种方案的优缺点：
 
+- 优点 ：master 发生宕机的话可以手动将某一台 slave 升级为 master，Redis 服务可用性提高。slave 可以分担读请求，读吞吐量大幅提高。
 
+- 缺点 ：手动将 slave 升级为 master 的过程费时且容易出错，，不支持横向扩展无法缓解写压力和存储压力。
 
-●优点 ：master 发生宕机的话可以手动将某一台 slave 升级为 master，Redis 服务可用性提高。slave 可以分担读请求，读吞吐量大幅提高。
-
-●缺点 ：手动将 slave 升级为 master 的过程费时且容易出错，，不支持横向扩展无法缓解写压力和存储压力。
-
-
-
- Redis Sentinel 
-
-
+## 哨兵模式Redis Sentinel 
 
 Sentinel（哨兵） 是 Redis 的一种运行模式 ，它主要的作用就是对 Redis 运行节点进行监控。当 master 节点出现故障的时候， Sentinel 会帮助我们实现故障转移，自动将某一台 slave 升级为 master，确保整个 Redis 系统的可用性。整个过程完全自动，不需要人工介入。
 
-
-
 Sentinel 模式基于主从复制，只是多了一个 Sentinel 角色来帮助我们监控 Redis 节点的运行状态并自动实现故障转移。
-
-
 
 ![img](https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fguide-blog-images.oss-cn-shenzhen.aliyuncs.com%2Fgithub%2Fjavaguide%2Fredisredis-master-slave-sentinel.png&sign=f6f7293bd46791f3b7ff7cc0ea11acb02c7551de2a64860e3949f59a838170c9)
 
@@ -87,65 +61,45 @@ Sentinel 模式基于主从复制，只是多了一个 Sentinel 角色来帮助�
 
 根据 [Redis Sentinel 官方文档](https://redis.io/topics/sentinel)，Sentinel 节点主要有下面这些作用：
 
+- 监控：监控所有 Redis 节点的状态是否正常。
 
+- 通知 ：可以通过 API 通知系统管理员或其他计算机程序，其中一个受监控的 Redis 实例出现问题。
 
-●监控：监控所有 Redis 节点的状态是否正常。
-
-●通知 ：可以通过 API 通知系统管理员或其他计算机程序，其中一个受监控的 Redis 实例出现问题。
-
-●故障转移：如果一个 master 出现故障，Sentinel 会帮助我们实现故障转移，自动将某一台 slave 升级为 master，确保整个 Redis 系统的可用性。
-
-
+- 故障转移：如果一个 master 出现故障，Sentinel 会帮助我们实现故障转移，自动将某一台 slave 升级为 master，确保整个 Redis 系统的可用性。
 
 Redis Sentinel 本身设计的就是一个分布式系统，建议多个 Sentinel 节点协作运行。这样做的好处是：
 
+- 多个 Sentinel 节点通过投票的方式来确定 Sentinel 节点是否真的不可用，避免误判（比如网络问题可能会导致误判）。
 
-
-●多个 Sentinel 节点通过投票的方式来确定 Sentinel 节点是否真的不可用，避免误判（比如网络问题可能会导致误判）。
-
-●Sentinel 自身就是高可用。
-
-
+- Sentinel 自身就是高可用。
 
 Sentinel 也是一个 Redis 进程，只是不对外提供读写服务，通常建议哨兵配置成单数（大于等于 3 台）。
 
-
-
 在这些 Sentinel 中会有一个 Leader 的角色来负责故障转移。
 
+- 如何选择出 Leader 角色呢？ 
 
-
-如何选择出 Leader 角色呢？ 这就需要用到分布式领域的 共识算法 了。简单来说，共识算法就是让分布式系统中的节点就一个问题达成共识。在 Sentinel 选举 Leader 这个场景下，这些 Sentinel 要达成的共识就是谁才是 Leader 。
+​	这就需要用到分布式领域的 共识算法 了。简单来说，共识算法就是让分布式系统中的节点就一个问题达成共识。在 Sentinel 选举 Leader 这个场景下，这些 Sentinel 要达成的共识就是谁才是 Leader 。
 
 
 
 大部分共识算法都是基于 Paxos 算法改进而来，在 Sentinel 选举 Leader 这个场景下使用的是 [Raft 算法](https://javaguide.cn/distributed-system/theorem&algorithm&protocol/raft-algorithm.html)。这是一个比 Paxos 算法更易理解和实现的共识算法—Raft 算法。更具体点来说，Raft 是 Multi-Paxos 的一个变种，其简化了 Multi-Paxos 的思想，变得更容易被理解以及工程实现。
 
-
-
 简单总结一下主从复制这种方案的优缺点：
 
+- 优点 ：支持故障自动切换。
 
+- 缺点 ：部署相对麻烦且需要耗费更多的服务器资源，不支持横向扩展无法缓解写压力和存储压力。
 
-●优点 ：支持故障自动切换。
-
-●缺点 ：部署相对麻烦且需要耗费更多的服务器资源，不支持横向扩展无法缓解写压力和存储压力。
-
-
-
- Redis Cluster 
-
-
+## 切片模式Redis Cluster 
 
 主从复制和 Redis Sentinel 方案本质都是通过增加副本的方式提高了 Redis 服务的可用性和读吞吐量。这两种方案都不支持横向扩展来缓解写压力以及解决缓存数据量过大的问题。
 
-
-
 如果写压力太大或者缓存数据量太大的话，我们可以提高服务器硬件配置或者采用 Redis 切片集群。
 
+- 什么是 Redis 切片集群？ 
 
-
-什么是 Redis 切片集群？ 简单来说，就是部署多台 Redis 实例，这些 Redis 示例之间平等，并没有主从之说，它们同时对外提供读/写服务，缓存的数据库相对均匀地分布在这些 Redis 实例上。Redis 切片集群对于横向扩展非常友好，只需要增加 Redis 实例到集群中即可。
+简单来说，就是部署多台 Redis 实例，这些 Redis 实例之间平等，并没有主从之说，它们同时对外提供读/写服务，缓存的数据库相对均匀地分布在这些 Redis 实例上。Redis 切片集群对于横向扩展非常友好，只需要增加 Redis 实例到集群中即可。
 
 
 
@@ -230,8 +184,6 @@ Redis Cluster 交换所用的消息体结构 clusterMsg 源码如下 ，地址�
 
 
 C
-
-复制代码
 
 1
 
