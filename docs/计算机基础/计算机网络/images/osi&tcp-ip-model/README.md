@@ -1,2 +1,0 @@
-- [返回上一级 [images]](计算机基础/计算机网络/images/)
-- [osi&tcp-ip-model](计算机基础/计算机网络/images/osi&tcp-ip-model/)

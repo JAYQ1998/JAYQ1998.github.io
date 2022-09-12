@@ -1,5 +1,0 @@
-- [返回上一级 [JVM]](JAVA/JVM/)
-- [pictures](JAVA/JVM/pictures/)
-  - [java内存区域](JAVA/JVM/pictures/java内存区域/)
-  - [jdk监控和故障处理工具总结](JAVA/JVM/pictures/jdk监控和故障处理工具总结/)
-  - [jvm垃圾回收](JAVA/JVM/pictures/jvm垃圾回收/)

@@ -1,5 +1,0 @@
-- [返回上一级 [JAVA]](JAVA/)
-- [容器](JAVA/容器/)
-  - [Collections工具类](JAVA/容器/Collections工具类.md)
-  - [comparable和Comparator的区别](JAVA/容器/comparable和Comparator的区别.md)
-  - [集合](JAVA/容器/集合.md)

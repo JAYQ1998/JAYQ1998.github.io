@@ -1,3 +1,0 @@
-- [返回上一级 [软技能]](软技能/)
-- [docker](软技能/docker/)
-  - [docker-intro](软技能/docker/docker-intro.md)
