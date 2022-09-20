@@ -89,7 +89,7 @@ Sentinel 也是一个 Redis 进程，只是不对外提供读写服务，通常�
 
 - 优点 ：支持故障自动切换。
 
-- 缺点 ：部署相对麻烦且需要耗费更多的服务器资源，不支持横向扩展无法缓解写压力和存储压力。
+- 缺点 ：部署相对麻烦且需要耗费更多的服务器资源，不支持横向扩展无法缓解**写压力**和**存储压力**。
 
 ## 切片模式Redis Cluster 
 
@@ -115,133 +115,54 @@ Redis 切片集群应该怎么做呢？ 在 Redis 3.0 之前，我们通常使�
 
 Redis Cluster 通过分片（sharding）来进行数据管理，提供复制和故障转移等功能，可以非常方便地帮助我们解决 Redis 大数据量缓存的问题。并且，这种方案可以很方便地进行横向拓展（增加 Redis 机器）。
 
-
-
-Redis Cluster 并没有使用一致性哈希，采用的是 虚拟槽分区 ，每一个键值对都属于一个 hash slot（ 虚拟槽） 。
-
-
+Redis Cluster 并没有使用一致性哈希，采用的是 **虚拟槽分区** ，每一个键值对都属于一个 hash slot（ 虚拟槽） 。
 
 Redis Cluster 通常有 16384 hash slots ，要计算给定 key 的 hash slot ，我们只需要通过对每个 key 计算 CRC16 值，然后对 16384(hash slot 的数量) 取模。
 
-
-
-
-
-
+```
+slot = crc16("foo") mod NUMER_SLOTS
+```
 
 假设集群有 3 个 Redis 节点组成，每个节点负责整个集群的一部分数据：
 
+- Node 1 ： 0 - 5500 的 hash slot.
 
+- Node 2 ： 5501 - 11000 的 hash slot. .
 
-●Node 1 ： 0 - 5500 的 hash slot.
+- Node 3 ： 11001 - 16383 的 hash slot..
 
-●Node 2 ： 5501 - 11000 的 hash slot. .
+Redis Cluster 是去中心化的，任何一台机器宕机，另外两个节点不会受到影响。因为 key 找的是 hash slot，不是机器。并且，我们想要添加新的节点比如 Node4 进入 Redis Cluster 也非常方便，只需要将一些 hash slot 从 节点 Node1，Node2，Node3 移动到 Node4 即可。
 
-●Node 3 ： 11001 - 16383 的 hash slot..
-
-
-
-Redis Cluster 是去中心化的，任何一台机器宕机，另外两个节点，不影响的。因为 key 找的是 hash slot，不是机器。并且，我们想要添加新的节点比如 Node4 进入 Redis Cluster 也非常方便，只需要将一些 hash slot 从 节点 Node1，Node2，Node3 移动到 Node4 即可。
-
-
-
-从上面的介绍中，我们可以简单总结出 Redis Cluster 虚拟槽分区机制的有点：解耦了数据和节点之间的关系，提升了集群的横向扩展性和容错性。
-
-
+从上面的介绍中，我们可以简单总结出 Redis Cluster 虚拟槽分区机制的有点：**解耦了数据和节点之间的关系，提升了集群的横向扩展性和容错性。**
 
 Redis Cluster 是一个典型的分布式系统，分布式系统中的各个节点需要互相通信。既然要相互通信就要遵循一致的通信协议，Redis Cluster 中的各个节点基于 Gossip 协议 来实现数据的最终一致性（每个 Redis 节点都维护了一份集群的状态信息）。
 
-
-
 Gossip 协议是分布式系统中非常重要的一个协议，我的建议是学有余力的小伙伴尽量要搞懂。不过，这个在面试中问的也不多，除非是你在简历上写了自己熟悉 Gossip 协议。关于 Gossip 协议的详细解读，推荐你看看下面这两篇文章：
-
-
 
 ●[一万字详解 Redis Cluster Gossip 协议 - 程序员历小冰](https://segmentfault.com/a/1190000038373546) ：深度好文！
 
 ●[Life in a Redis Cluster: Meet and Gossip with your neighbors](https://cristian.regolo.cc/2015/09/05/life-in-a-redis-cluster.html) ：动图讲解。
 
-
-
 Redis Cluster 各个节点通信主要交换的信息包括：
 
+1. myslots ：当前节点所负责的 slots 信息
 
+2. flags : 当前节点当前的状态
 
-1myslots ：当前节点所负责的 slots 信息
-
-2flags : 当前节点当前的状态
-
-3......
-
-
+3. ......
 
 Redis Cluster 交换所用的消息体结构 clusterMsg 源码如下 ，地址：https://github.com/redis/redis/blob/d96f47cf06/src/cluster.h 。
 
 
 
-
-
-
-
-C
-
-1
-
-2
-
-3
-
-4
-
-5
-
-6
-
-7
-
-8
-
-9
-
-10
-
-11
-
-12
-
-13
-
-14
-
-15
-
-16
-
-17
-
-18
-
-19
-
-20
-
-21
-
-22
-
-23
-
-24
-
-25
-
+```c
 typedef struct {
 
-​    char sig[4];        /* Signature "RCmb" (Redis Cluster message bus). */
+    char sig[4];        /* Signature "RCmb" (Redis Cluster message bus). */
 
-​    uint32_t totlen;    /* Total length of this message */
+    uint32_t totlen;    /* Total length of this message */
 
-​    uint16_t ver;       /* Protocol version, currently set to 1. */
+    uint16_t ver;       /* Protocol version, currently set to 1. */
 
 ​    uint16_t port;      /* TCP base port number. */
 
@@ -286,6 +207,7 @@ typedef struct {
 } clusterMsg;
 
 
+```
 
 简单总结一下 Redis Cluster 这种方案的优缺点：
 

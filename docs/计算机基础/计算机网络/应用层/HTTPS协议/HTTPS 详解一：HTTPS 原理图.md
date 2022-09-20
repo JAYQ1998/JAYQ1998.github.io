@@ -16,7 +16,7 @@ HTTPS 详解系列：
 
 HTTP 之所以被 HTTPS 取代，最大的原因就是不安全，至于为什么不安全，看了下面这张图就一目了然了。
 
-![HTTP数据传输过程.png](https://segmentfault.com/img/bVbClUf)
+![HTTP数据传输过程.png](HTTPS 详解一：HTTPS 原理图.assets\bVbClUf.png)
 
 > 图1. HTTP数据传输过程
 
@@ -39,7 +39,7 @@ HTTPS 解决数据传输安全问题的方案就是使用加密算法，具体�
 
 本文不对具体的加密算法做详细介绍，有兴趣的同学可以参考 [对称加密算法详解](https://link.segmentfault.com/?enc=zcSfVjL4RXUOxmbVRzvijg%3D%3D.KQXiAuPx%2BIz%2B7t6lZc%2FsLfb62vpWnF5uSqmH5RmdR8S%2FrcmwczJ%2BwCqCELylxvlOf9G1m%2F1VTDHzS0pF9woakQ%3D%3D)，如果直接将对称加密算法用在 HTTP 中，会是下面的效果：
 
-![对称加密数据传输过程](https://segmentfault.com/img/bVbCz9u)
+![对称加密数据传输过程](HTTPS%20%E8%AF%A6%E8%A7%A3%E4%B8%80%EF%BC%9AHTTPS%20%E5%8E%9F%E7%90%86%E5%9B%BE.assets/bVbCz9u.png)
 
 > 图2. 对称加密数据传输过程
 
@@ -70,7 +70,7 @@ HTTPS 解决数据传输安全问题的方案就是使用加密算法，具体�
 
 可见HTTPS 并非独立的通信协议，而是对 HTTP 的扩展，保证了通信安全，二者关系如下：
 
-![HTTP和HTTPS的关系.png](https://segmentfault.com/img/bVbClUj)
+![HTTP和HTTPS的关系.png](E:\JAYQ1998.github.io\docs\计算机基础\计算机网络\应用层\HTTPS协议\HTTPS 详解一：HTTPS 原理图.assets\bVbClUj.png)
 
 > 图4. HTTP和HTTPS的关系
 
@@ -88,7 +88,7 @@ HTTPS 解决数据传输安全问题的方案就是使用加密算法，具体�
 
 2.采用 HTTPS 协议的服务器必须要有一套数字 CA (Certification Authority)证书，证书是需要申请的，并由专门的数字证书认证机构(CA)通过非常严格的审核之后颁发的电子证书 (当然了是要钱的，安全级别越高价格越贵)。颁发证书的同时会产生一个私钥和公钥。私钥由服务端自己保存，不可泄漏。公钥则是附带在证书的信息中，可以公开的。证书本身也附带一个证书电子签名，这个签名用来验证证书的完整性和真实性，可以防止证书被篡改。
 
-3.服务器响应客户端请求，将证书传递给客户端，证书包含公钥和大量其他信息，比如证书颁发机构信息，公司信息和证书有效期等。Chrome 浏览器点击地址栏的锁标志再点击证书就可以看到证书详细信息。
+3.服务器响应客户端请求，将证书传递给客户端，证书包含**公钥**和大量其他信息，比如证书颁发机构信息，公司信息和证书有效期等。Chrome 浏览器点击地址栏的锁标志再点击证书就可以看到证书详细信息。
 
 ![CA证书.png](https://segmentfault.com/img/bVbClUt)
 
@@ -99,7 +99,7 @@ HTTPS 解决数据传输安全问题的方案就是使用加密算法，具体�
 
 > 图7. 浏览器安全警告
 
-如果证书没有问题，客户端就会从服务器证书中取出服务器的公钥A。然后客户端还会生成一个随机码 KEY，并使用公钥A将其加密。
+如果证书没有问题，客户端就会从服务器证书中取出服务器的**公钥A**。然后客户端还会生成一个随机码 KEY，并使用公钥A将其加密。
 
 5.客户端把加密后的随机码 KEY 发送给服务器，作为后面对称加密的密钥。
 
