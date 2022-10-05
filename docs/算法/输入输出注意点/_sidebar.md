@@ -1,4 +1,0 @@
-- [返回上一级 [算法]](算法/)
-- [输入输出注意点](算法/输入输出注意点/)
-  - [java中next()和nextline()用法区别](算法/输入输出注意点/java中next()和nextline()用法区别.md)
-  - [使用while(scanner.hasNextLine()){}循环体时，无法结束循环](算法/输入输出注意点/使用while(scanner.hasNextLine()){}循环体时，无法结束循环.md)
