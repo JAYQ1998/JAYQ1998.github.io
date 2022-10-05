@@ -1,2 +1,0 @@
-- [返回上一级 [images]](数据库/MYSQL/images/)
-- [mvvc](数据库/MYSQL/images/mvvc/)

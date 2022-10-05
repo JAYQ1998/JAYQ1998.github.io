@@ -1,6 +1,0 @@
-- [返回上一级 [软技能]](软技能/)
-- [idea](软技能/idea/)
-  - [img](软技能/idea/img/)
-  - [idea好用插件](软技能/idea/idea好用插件.md)
-  - [idea常用快捷键](软技能/idea/idea常用快捷键.md)
-  - [idea常用设置](软技能/idea/idea常用设置.md)

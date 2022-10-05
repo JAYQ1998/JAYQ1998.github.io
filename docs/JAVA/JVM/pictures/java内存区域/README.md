@@ -1,2 +1,0 @@
-- [返回上一级 [pictures]](JAVA/JVM/pictures/)
-- [java内存区域](JAVA/JVM/pictures/java内存区域/)
