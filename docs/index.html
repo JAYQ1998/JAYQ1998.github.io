@@ -24,9 +24,9 @@
 
       //侧边栏
       loadSidebar: true,
-      // alias: {
-      //   '/.*/_sidebar.md': '/_sidebar.md',
-      // },
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+      },
       //自动添加标题
       autoHeader: true,
 
@@ -57,7 +57,7 @@
       timeUpdater: {
         text: ">最后更新时间: {docsify-updated}",
         formatUpdated: "{YYYY}/{MM}/{DD}",
-        whereToPlace: "bottom",  // "top" or "bottom", default to "bottom"
+        whereToPlace: "top",  // "top" or "bottom", default to "bottom"
       },
 
       //字数统计配置
