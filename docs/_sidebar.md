@@ -1,4 +1,4 @@
-- [Python](python/)
+- [Python学习笔记](python/)
   - [爬虫](python/crawler/)
     - [BeautifulSoap](python/crawler/beautifulsoap.md)
     - [学习中遇到的问题](python/crawler/crawler-questions.md)
@@ -238,5 +238,3 @@
     - [callback接口](项目/可回溯系统/callback接口.md)
   - [论文](项目/论文/)
     - [去中心化数据共享系统](项目/论文/去中心化数据共享系统.md)
-- [更新日志](更新日志.md)
-- [更新计划](更新计划.md)
