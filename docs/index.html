@@ -87,8 +87,23 @@
             body: "ltl",
             side: "ltr",
             bdo: "rtr"
-      }
-
+      },
+      // MD提示功能
+      'flexible-alerts': {
+        style: 'flat',
+        note: {
+          label: "注意"
+        },
+        tip: {
+          label: "提示"
+        },
+        warning: {
+          label: "提醒"
+        },
+        attention: {
+          label: "警告"
+        }
+      },
 
     }
   </script>
@@ -115,6 +130,8 @@
   <script src="//unpkg.com/docsify-share/build/index.min.js"></script>
   <!-- 文字方向 -->
   <script src="//unpkg.com/docsify-rtl/build/index.min.js"></script>
+  <!-- MD提示功能 -->
+  <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
 </body>
 
 </html>
