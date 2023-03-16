@@ -1,3 +1,8 @@
+- [Python](python/)
+  - [爬虫](python/crawler/)
+    - [BeautifulSoap](python/crawler/beautifulsoap.md)
+    - [学习中遇到的问题](python/crawler/crawler-questions.md)
+
 - [Bug汇总](Bug汇总/)
   - [git相关bug](Bug汇总/git相关bug.md)
   - [idea项目环境常见设置问题](Bug汇总/idea项目环境常见设置问题.md)
