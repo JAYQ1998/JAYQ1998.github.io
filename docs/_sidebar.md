@@ -5,6 +5,8 @@
       - [urllib](notes/python/spider/urllib.md)
       - [BeautifulSoap](notes/python/spider/beautifulsoap.md)
       - [学习中遇到的问题](notes/python/spider/spider-questions.md)
+- [📓指南](guide/)
+  - [github使用指南](guide/github-guide.md)
 - [🧧生活](life/)
   - [旅游](life/travel/)
     - [上海](life/travel/shanghai)
