@@ -1,18 +1,10 @@
+<!-- Stream学习笔记 -->
+
 > 引自: [csdn](https://blog.csdn.net/mu_wind/article/details/109516995)
 >
 > 有删改
 
-# 先贴上几个案例，水平高超的同学可以挑战一下：
-
-- 从员工集合中筛选出salary大于8000的员工，并放置到新的集合里。
-  统计员工的最高薪资、平均薪资、薪资之和。
-  将员工按薪资从高到低排序，同样薪资者年龄小者在前。
-  将员工按性别分类，将员工按性别和地区分类，将员工按薪资是否高于8000分为两部分。
-  用传统的迭代处理也不是很难，但代码就显得冗余了，跟Stream相比高下立判。
-
-![](STREAM流.assets/73063862340e4cfcbb31fb53b3f5db0d.jpg)
-
-# 1 Stream概述
+# 1.Stream概述
 
 Java 8 是一个非常成功的版本，这个版本新增的Stream，配合同版本出现的 Lambda ，给我们操作集合（Collection）提供了极大的便利。
 
@@ -31,7 +23,7 @@ Stream可以由数组或集合创建，对流的操作分为两种：
 - stream不会改变数据源，通常情况下会产生一个新的集合或一个值。
 - stream具有延迟执行特性，只有调用终端操作时，中间操作才会执行。
 
-# 2 Stream的创建
+# 2.Stream的创建
 
 - Stream可以通过集合数组创建。
 
@@ -73,7 +65,7 @@ stream3.forEach(System.out::println);
 
 `stream`和`parallelStream`的简单区分： `stream`是顺序流，由主线程按顺序对流执行操作，而`parallelStream`是并行流，内部以多线程并行执行的方式对流进行操作，但前提是流中的数据处理没有顺序要求。例如筛选集合中的奇数，两者的处理不同之处：
 
-![å¨è¿éæå¥å¾çæè¿°](STREAM流.assets/20201106164400889.png)
+![å¨è¿éæå¥å¾çæè¿°](stream.assets/20201106164400889.png)
 
 如果流中的数据量足够大，并行流可以加快处速度。
 
@@ -85,7 +77,7 @@ Optional<Integer> findFirst = list.stream().parallel().filter(x->x>6).findFirst(
 
 
 
-# 3 Stream的使用
+# 3.Stream的使用
 
 在使用stream之前，先理解一个概念：`Optional` 。
 
@@ -131,7 +123,7 @@ public Person(String name, int salary, int age,String sex,String area) {
 
 > Stream也是支持类似集合的遍历和匹配元素的，只是Stream中的元素是以Optional类型存在的。Stream的遍历、匹配非常简单。
 
-![å¨è¿éæå¥å¾çæè¿°](STREAM流.assets/2020110914450139.png)
+![å¨è¿éæå¥å¾çæè¿°](stream.assets/2020110914450139.png)
 
 ```java
 public class StreamTest {
@@ -625,3 +617,13 @@ List<Integer> list = Arrays.asList(1, 6, 3, 4, 6, 7, 9, 6, 20);
 > 流合并：[a, b, c, d, e, f, g]
 > limit：[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
 > skip：[3, 5, 7, 9, 11]
+
+# 自测题
+
+- 从员工集合中筛选出salary大于8000的员工，并放置到新的集合里。
+  统计员工的最高薪资、平均薪资、薪资之和。
+  将员工按薪资从高到低排序，同样薪资者年龄小者在前。
+  将员工按性别分类，将员工按性别和地区分类，将员工按薪资是否高于8000分为两部分。
+  用传统的迭代处理也不是很难，但代码就显得冗余了，跟Stream相比高下立判。
+
+![](stream.assets/73063862340e4cfcbb31fb53b3f5db0d.jpg)

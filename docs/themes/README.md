@@ -1,3 +1,0 @@
-- [返回首页](/)
-- [themes](themes/)
-  - [lib](themes/lib/)
