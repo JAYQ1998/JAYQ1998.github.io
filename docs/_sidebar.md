@@ -1,8 +1,10 @@
+<!-- 侧边栏 -->
 - [📔学习笔记](notes/)
   - [Python](notes/python/)
-    - [爬虫](notes/python/crawler/)
-      - [BeautifulSoap](notes/python/crawler/beautifulsoap.md)
-      - [学习中遇到的问题](notes/python/crawler/crawler-questions.md)
+    - [爬虫](notes/python/spider/)
+      - [urllib](notes/python/spider/urllib.md)
+      - [BeautifulSoap](notes/python/spider/beautifulsoap.md)
+      - [学习中遇到的问题](notes/python/spider/spider-questions.md)
 - [🧧生活](life/)
   - [旅游](life/travel/)
     - [上海](life/travel/shanghai)
@@ -21,7 +23,7 @@
     - [泰拉瑞亚全收集攻略](life/game/%E6%B3%B0%E6%8B%89%E7%91%9E%E4%BA%9A%E5%85%A8%E6%94%B6%E9%9B%86.md)
 - [📝资源收藏](resource/)
   - [油猴脚本](resource/tampermonkey-script.md)
-
+  - [影视资源](resource/video.md)
 
 - [Bug汇总](Bug汇总/)
   - [git相关bug](Bug汇总/git相关bug.md)

@@ -9,5 +9,5 @@
 - 整理看到的好文章
 - 记录所见所闻
 
-[GitHub](https://github.com/docsifyjs/docsify/)
+[GitHub](https://github.com/JAYQ1998/JAYQ1998.github.io)
 [Get Started](/README)
