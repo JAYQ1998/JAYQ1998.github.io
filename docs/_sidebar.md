@@ -24,7 +24,7 @@
   - [游戏](life/game/)
     - [泰拉瑞亚全收集攻略](life/game/%E6%B3%B0%E6%8B%89%E7%91%9E%E4%BA%9A%E5%85%A8%E6%94%B6%E9%9B%86.md)
 - [📝资源收藏](resource/)
-  - [油猴脚本](resource/tampermonkey-script.md)
+  - [网页脚本](resource/script.md)
   - [影视资源](resource/video.md)
 
 - [Bug汇总](Bug汇总/)
