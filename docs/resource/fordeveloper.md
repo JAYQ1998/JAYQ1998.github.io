@@ -1,3 +1,15 @@
+<!-- titile: 开发者资源-->
+
+## logo设计
+
+pornhub风格logo自动生成
+
+https://www.logoly.pro/
+
+## emoji大全
+
+https://emojixd.com/
+
 ## 在线Cron表达式生成器
 
 http://cron.qqe2.com/
