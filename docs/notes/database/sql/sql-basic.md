@@ -87,10 +87,10 @@ select database();
 >
 > 在操作表之前应使用“USE 数据库名;”指定操作是在哪个数据库中进行操作，否则会抛出“No database selected”错误。
 
-- 创建表
+### 创建表
 
 ```sql
-create table 表名(
+create table 表名 (可选if not exists)(
          字段1 字段类型,
          字段2 字段类型,
          …
