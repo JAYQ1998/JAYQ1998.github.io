@@ -8,6 +8,8 @@
       - [urllib](notes/python/spider/urllib.md)
       - [BeautifulSoap](notes/python/spider/beautifulsoap.md)
       - [学习中遇到的问题](notes/python/spider/spider-questions.md)
+    - [Web框架](notes/python/web/)
+      - [Flask](notes/python/web/flask.md)
   - [数据库](notes/database/)
     - [sql](notes/database/sql/)
       - [语法基础](notes/database/sql/sql-basic.md)
