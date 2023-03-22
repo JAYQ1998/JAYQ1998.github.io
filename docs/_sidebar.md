@@ -43,4 +43,5 @@
 - [📝资源收藏](resource/)
   - [网页脚本](resource/script.md)
   - [影视资源](resource/video.md)
+  - [软件资源](resource/software.md)
 
