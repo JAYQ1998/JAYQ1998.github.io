@@ -3,15 +3,11 @@ title: RestFul API 简明教程
 category: 代码质量
 ---
 
-![](RESTfulAPI.assets/2021050713553862.png)
-
 这篇文章简单聊聊后端程序员必备的 RESTful API 相关的知识。
 
 开始正式介绍 RESTful API 之前，我们需要首先搞清 ：**API 到底是什么？**
 
 ## 何为 API？
-
-![](https://img-blog.csdnimg.cn/20210507153833945.png)
 
 **API（Application Programming Interface）** 翻译过来是应用程序编程接口的意思。
 
@@ -66,7 +62,7 @@ POST   /classes：新建一个班级
 
 ## RESTful API 规范
 
-![](https://img-blog.csdnimg.cn/20210507154007779.png)
+![](RESTfulAPI.assets/20210507154007779.png)
 
 ### 动作
 

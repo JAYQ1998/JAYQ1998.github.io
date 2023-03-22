@@ -19,6 +19,7 @@
       - [语法基础](note/database/sql/sql-basic.md)
   
 - [📓指南](guide/)
+  - [finalshell使用指南](guide/finalshell.md)
   - [git使用指南](guide/git.md)
   - [github使用指南](guide/github.md)
   - [postman使用指南](guide/postman.md)
