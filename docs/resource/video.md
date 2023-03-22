@@ -40,7 +40,7 @@
 >
 > 以下资源国内非法，谨慎观看
 
-## 4.BT资源
+## 1.BT资源
 
 - [Sukebei](https://sukebei.nyaa.si/)
 
@@ -80,7 +80,7 @@ exhentai.org 【漫画、同人、部分cos】
 
 3xplanet **【日本、欧美、FC2预览图】
 
-## 5.**资料网站**
+## 2.**资料网站**
 
 > 可以用来找演员信息、番号、预览图
 
@@ -100,9 +100,14 @@ exhentai.org 【漫画、同人、部分cos】
 
   【日本；以图搜图】
 
-## 6.**在线观看**
+## 3.**在线观看**
 
 - [PornHub](https://www.pornhub.com/)
 
 - [XVideos](http://porndude.link/xvideos)
 - [xHamster](https://xhamster.com/)
+
+## 4.论坛
+
+- [黑料不打烊](https://455.fun/archives/15476.html)
+国内的比较全
