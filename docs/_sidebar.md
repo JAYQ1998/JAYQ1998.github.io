@@ -38,6 +38,7 @@
       - [文通冰室](life/food/shanghai/文通冰室.md)
       - [贯贯吉](life/food/shanghai/贯贯吉.md)
   - [健康](life/health/)
+    - [面部养护](life/health/face.md)
     - [膝盖保护](life/health/knee-protect.md)
   - [游戏](life/game/)
     - [泰拉瑞亚](life/game/%E6%B3%B0%E6%8B%89%E7%91%9E%E4%BA%9A%E5%85%A8%E6%94%B6%E9%9B%86.md)
